@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:m_s_food/components/buttons.dart';
 import 'package:m_s_food/components/textfields.dart';
 
+import 'home.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({
     super.key, 
@@ -18,6 +20,13 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  void login() {
+    // authentication and navigation logic here
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),
+    )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 25),
           // sign in Btn
-          MsFButton(text: "Sign In", onTap: () {}),
+          MsFButton(text: "Sign In", onTap: login),
 
           const SizedBox(height: 25),
           // Register Section
