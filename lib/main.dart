@@ -1,5 +1,8 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:m_s_food/auth/login_or_register.dart';
+import 'package:m_s_food/models/restaurant.dart';
 import 'package:m_s_food/pages/login_page.dart';
 import 'package:m_s_food/pages/register.dart';
 import 'package:provider/provider.dart';
@@ -7,9 +10,15 @@ import 'themes/theme_provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      child: const MyApp(), 
+    MultiProvider(providers: [
+      // Theme Provider
+      ChangeNotifierProvider(create: (context) => ThemeProvider()
+      ),
+      // Restaurant Provider
+      ChangeNotifierProvider(create: (context) => Restaurant()
+      ),
+    ],
+    child: const MyApp(),
     ),
   );
 }
