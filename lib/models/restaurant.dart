@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'food.dart';
 
-class Restaurant{
+class Restaurant extends ChangeNotifier{
   // List of Food menu
   final List<Food> _menu = [
     // Burgers
@@ -43,7 +45,7 @@ class Restaurant{
       Food(
       name: "Burger", 
       description:"A good and well flavoured burger with plenty of cheese and flavor", 
-      imagePath: "lib/images/burgers/burgerimage22.jpeg", 
+      imagePath: "lib/images/burgers/burgerimage22.jpg", 
       price: 1700.00, 
       category: FoodCategory.burgers, 
       availableAddons: [
@@ -56,7 +58,7 @@ class Restaurant{
     Food(
       name: "Salad type One", 
       description:"A good and well flavoured healthy salad that is fresh", 
-      imagePath: "lib/images/salads/salad1.jpeg", 
+      imagePath: "lib/images/salads/salad1.jpg", 
       price: 1200.00, 
       category: FoodCategory.salads, 
       availableAddons: [
@@ -202,7 +204,7 @@ class Restaurant{
     Food(
       name: "MilkShake Type One", 
       description:"Freshly made milk shake", 
-      imagePath: "lib/images/drinks/milkshake1.jpg", 
+      imagePath: "lib/images/drinks/milkshake1.jpeg", 
       price: 500.00, 
       category: FoodCategory.drinks, 
       availableAddons: [
@@ -222,7 +224,7 @@ class Restaurant{
       Food(
       name: "MilkShake Type Three", 
       description:"Freshly made milk shake", 
-      imagePath: "lib/images/drinks/milkshake3.jpg", 
+      imagePath: "lib/images/drinks/milkshake3.jpeg", 
       price: 500.00, 
       category: FoodCategory.drinks, 
       availableAddons: [
