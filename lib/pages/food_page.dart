@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:m_s_food/components/buttons.dart';
+import 'package:m_s_food/models/restaurant.dart';
+import 'package:provider/provider.dart';
 
 import '../models/food.dart';
 
@@ -21,6 +23,17 @@ class FoodPage extends StatefulWidget {
 }
 
 class _FoodPageState extends State<FoodPage> {
+
+  // add to cart method
+ void addToCart(Food food, Map<Addon, bool> selectedAddons) {
+  List<Addon> currentlySelectedAddons = [];
+  for (Addon addon in widget.food.availableAddons) {
+    if (widget.selectedAddons[addon] == true) {
+      currentlySelectedAddons.add(addon);
+    }
+  }
+  context.read<Restaurant>().addToCart(food, currentlySelectedAddons);
+ }
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -111,7 +124,8 @@ class _FoodPageState extends State<FoodPage> {
                 ),
               ),
               // Btn(Add to Cart) 
-              MsFButton(text: "Add To Cart", onTap: () {}),
+              MsFButton(text: "Add To Cart", onTap: () => addToCart(widget.selectedAddons);
+              ),
         
               const SizedBox(height: 25),
             ],
