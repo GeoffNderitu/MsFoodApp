@@ -124,7 +124,7 @@ class _FoodPageState extends State<FoodPage> {
                 ),
               ),
               // Btn(Add to Cart) 
-              MsFButton(text: "Add To Cart", onTap: () => addToCart(context as Food, widget.selectedAddons)
+              MsFButton(text: "Add To Cart", onTap: () => addToCart(widget.selectedAddons)
               ),
         
               const SizedBox(height: 25),
