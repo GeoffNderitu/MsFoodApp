@@ -15,6 +15,20 @@ class CartPage extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           title: const Text("Cart"),
+          backgroundColor: Colors.transparent,
+          foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+        ),
+        body: Column(
+          children: [
+            Expanded(child: 
+            ListView.builder(
+              itemCount: userCart.length,
+              itemBuilder: (context, index) => ListTile(
+                title: Text(userCart[index].food.name),
+              ),
+            ),
+            )
+          ],
         ),
       );
     });
